@@ -1,0 +1,82 @@
+###"Mini projet docker####################################################################################################################### 
+
+#l'objectif est de mettre en place une infrastructure Docker.
+#les thèmes abordés sont :
+• améliorer un processus de déploiement d'applications existantes
+• versionner la version de votre architecture 
+• aborder les meilleurs pratiques lors de la mise en oeuvre d'une infrastructure Docker 
+• infrastructure en tant que code 
+
+#But : construire un conteneur pour chaque module et faire interagir les 2
+#Module 1 : c'est une API (avec authentification de base ) qui envoie la liste de souhaits de l'étudiant sur le fichier json
+#Module 2 : Application (PHP & HTML ) qui permet à l'utilisateur final d'obtenir une liste d'étudiants 
+
+#Pour réaliser ce projet nous avons besion d'un machine ou il existe docker 
+
+=====> Telecharger le repo sur github 
+git clone https://github.com/diranetafen/student-list.git
+
+==== Partie 1 : Mettre l'application python dans une image docker =====
+#Deplacer dans le repertoire courant 
+cd student-list
+cd simple_api
+#Editer , copier le script ensuite et enregistrer le Dockerfile 
+
+vi Dockerfile 
+FROM python:2.7-stretch
+MAINTAINER boidiaka@gmail.com
+ADD student_age.py /
+RUN apt-get update -y && apt-get install python-dev python3-dev libsasl2-dev python-dev libldap2-dev libssl-dev -y
+RUN pip install flask==1.1.2 flask_httpauth==4.1.0 flask_simpleldap python-dotenv==0.14.0
+EXPOSE 5000
+VOLUME ["/data"]
+CMD [ "python", "./student_age.py" ]
+
+#Construire l'image 
+docker build -t api-pozos:v1 .
+#Creer un reseau
+docker network create pozos
+
+#Lancer mon conteneur dans ce reseau
+docker run -d --network pozos --name test-api-pozos -v ${PWD}/student_age.json:/data/student_age.json -p 8000:5000 api-pozos:v1
+
+#Tester si elle fonctionne 
+curl -u toto:python -X GET http://10.0.0.3:8000/pozos/api/v1.0/get_student_ages
+
+======= PARTIE 2 ===============
+faire de IAC à l'aide de docker-compose en ajoutant  un deuxième conteneur pour dialoguer avec le précedent .
+
+vi docker-compose.yml
+version: '3'
+services:
+  web:
+    image: php:apache
+    depends_on:
+      - api
+    ports:
+      - "8080:80"
+    volumes:
+      - ./website:/var/www/html
+    environment:
+      - USERNAME=toto
+      - PASSWORD=python
+    networks:
+      - pozos
+  api:
+    image: api-pozos:v1
+    ports:
+      - "8000:5000"
+    volumes:
+      - ./simple_api/student_age.json:/data/student_age.json
+    networks:
+      - pozos
+      
+      
+networks:
+  pozos:
+
+#Creer les conteneurs 
+docker-compose up -d
+
+#Dans mon fichier index.html ,modifier la ligne 30 de index.php
+$url = 'http://10.0.0.3:8080/pozos/api/v1.0/get_student_ages';
