@@ -162,20 +162,5 @@ Or you can use [Portus](http://port.us.org/ "Portus") to run both
 
 Don't forget to push your image on your private registry and show them in your delivery.
 
-## Delivery (4 points)
 
-Your delivery must be zip named firstname.zip (replace firstname by your own) that contain:
 
-- A doc or PDF file with your screenshots and explanations.
-- Configuration files used to realize the graded exercise (docker-compose.yml and Dockerfile).
-
-Your delivery will be evaluated on:
-
-- Explanations quality
-- Screenshots quality (relevance, visibility)
-- Presentation quality
-
-Send your delivery at ***eazytrainingfr@gmail.com*** and we will provide you the link of the solution.
-
-![good luck](https://user-images.githubusercontent.com/18481009/84582398-cad38100-adeb-11ea-95e3-2a9d4c0d5437.gif)
-# Projetdocker-
