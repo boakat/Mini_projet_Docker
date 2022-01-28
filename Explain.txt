@@ -80,3 +80,15 @@ docker-compose up -d
 
 #Dans mon fichier index.html ,modifier la ligne 30 de index.php
 $url = 'http://10.0.0.3:8080/pozos/api/v1.0/get_student_ages';
+
+
+======= PARTIE 3 ===============
+
+#Déployer sur mon registre privé (en local)
+#Lancer mon registre privé 
+docker run -d -p 5000:5000 --name registry registry:2
+#Renommer mon image 
+docker image tag api-pozos:v1 10.0.0.3:5000/api-pozos:v1
+#Envoyer mon image dans le registry 
+docker push 10.0.0.3:5000/api-pozos:v1
+
