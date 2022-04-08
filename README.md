@@ -79,7 +79,7 @@ Le fichier docker compose.yml déploiera deux services :
 
 ### Partie 3 : Déployer les images construites sur un registre privé 
 POZOS a besoin de vous pour déployer un registre privé et stocker les images construites .Vous devez donc déployer :
-- a docker [registry](https://docs.docker.com/registry/ "registry")
+- docker [registry](https://docs.docker.com/registry/ "registry")
 
  
  
