@@ -43,8 +43,8 @@ Vous devez mettre à jour la ligne suivante avant de lancer le conteneur du site
 
 ### Partie 1 : Build et test :
 Quelles informations pour la construction du conteneur :
-  - image de base : "python: 2.7-stretch"
-  -  Mainteneur :  nom_ops
+  - Image de base : "python: 2.7-stretch"
+  - Mainteneur :  nom_ops
   - Ajouter le code source : Vous devez copier le code source de l'API dans le conteneur à la racine du chemin "/"
   - Volume : creer un dossier data à la racine root "/" ou les données seront stockées et la declarées
   - API Port : expose port 5000
@@ -66,20 +66,20 @@ Après le test de ton API image, vous avez besoin de tout mettre ensemble et dé
 Le fichier docker compose.yml déploiera deux services :
 
 => Site web : l'interface de l'utilisateur final avec les caractéristiques suivantes
-- image : php:apache 
-- environnement : vous fournirez le NOM D'UTILISATEUR et le MOT DE PASSE pour permettre à l'application web d'accéder à l'API par authentification.
-- volumes : pour éviter que l'image php:apache ne fonctionne avec le site web par défaut, nous allons lier le site web donné par POZOS à utiliser.Vous devez avoir quelque chose comme ./website:/var/www/html
-- depend_on : vous devez vous assurer que l'API démarrera en premier avant le site web.
-- port : n'oubliez pas d'exposer le port 
+- Image : php:apache 
+- Environnement : vous fournirez le NOM D'UTILISATEUR et le MOT DE PASSE pour permettre à l'application web d'accéder à l'API par authentification.
+- Volumes : pour éviter que l'image php:apache ne fonctionne avec le site web par défaut, nous allons lier le site web donné par POZOS à utiliser.Vous devez avoir quelque chose comme ./website:/var/www/html
+- Depend_on : vous devez vous assurer que l'API démarrera en premier avant le site web.
+- Port : n'oubliez pas d'exposer le port 
 
 => API : l'image construite précédemment doit être utilisée avec les spécifications suivantes
-- image : le nom de l'image construite précédemment 
-- volumes : Vous monterez le fichier student_age.json dans /data/student_age.json
-- port : n'oubliez pas d'exposer le port.
+- Image : le nom de l'image construite précédemment 
+- Volumes : Vous monterez le fichier student_age.json dans /data/student_age.json
+- Port : n'oubliez pas d'exposer le port.
 
 ### Partie 3 : Déployer les images construites sur un registre privé 
 POZOS a besoin de vous pour déployer un registre privé et stocker les images construites .Vous devez donc déployer :
-- docker [registry](https://docs.docker.com/registry/ "registry")
+- Docker [registry](https://docs.docker.com/registry/ "registry")
 
  
  
