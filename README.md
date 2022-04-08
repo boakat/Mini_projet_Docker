@@ -66,7 +66,8 @@ Après le test de ton API image, vous avez besoin de tout mettre ensemble et dé
 Le fichier docker compose.yml déploiera deux services :
 
 => Site web : l'interface de l'utilisateur final avec les caractéristiques suivantes
-image : php: apache - environnement : vous fournirez le NOM D'UTILISATEUR et le MOT DE PASSE pour permettre à l'application web d'accéder à l'API par authentification.
+- image : php:apache 
+- environnement : vous fournirez le NOM D'UTILISATEUR et le MOT DE PASSE pour permettre à l'application web d'accéder à l'API par authentification.
 - volumes : pour éviter que l'image php:apache ne fonctionne avec le site web par défaut, nous allons lier le site web donné par POZOS à utiliser.Vous devez avoir quelque chose comme ./website:/var/www/html
 - depend_on : vous devez vous assurer que l'API démarrera en premier avant le site web.
 - port : n'oubliez pas d'exposer le port 
