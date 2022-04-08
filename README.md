@@ -18,8 +18,8 @@ En conclusion, POZOS a besoin d'agilité sur sa ferme logicielle.
 # Quelques récommandations pour infrastructure :
 Pour ce POC, vous n'utiliserez qu'une seule machine avec un docker installé dessus.
 La construction et le déploiement seront effectués sur cette machine.
-POZOS vous recommande d'utiliser l'OS Centos7.6 car c'est le plus utilisé dans l'entreprise.
-Veuillez également noter que vous êtes autorisé à utiliser une machine virtuelle basée sur Centos7.6 et non votre machine physique.
+POZOS vous recommande d'utiliser l'OS Centos 7.6 car c'est le plus utilisé dans l'entreprise.
+Veuillez également noter que vous êtes autorisé à utiliser une machine virtuelle basée sur Centos 7.6 et non votre machine physique.
 La sécurité est un aspect très critique de POZOS DSI donc s'il vous plaît ne désactivez pas le pare-feu ou d'autres mécanismes de sécurité sinon veuillez expliquer vos raisons dans votre livraison.
 
 # Description de l'application :
