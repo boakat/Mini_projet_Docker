@@ -50,7 +50,7 @@ Quelles informations pour la construction du conteneur :
   - API Port : expose port 5000
   - CMD : CMD [ "python", "./student_age.py" ]
  
- #### Prérequis
+ ### Prérequis
 L'API utilise le moteur FLASK, voici une liste des paquets que vous devez installer :
 
        apt-get update -y && apt-get install python-dev python3-dev libsasl2-dev python-dev libldap2- dev libssl-dev -y
@@ -65,7 +65,7 @@ Construisez votre image et essayez de l'exécuter (n'oubliez pas de monter le fi
 Après le test de ton API image, vous avez besoin de tout mettre ensemble et déployer cela en utilisant le docker-compose.yml
 Le fichier docker compose.yml déploiera deux services :
 
-=> site web : l'interface de l'utilisateur final avec les caractéristiques suivantes
+=> Site web : l'interface de l'utilisateur final avec les caractéristiques suivantes
 image : php: apache - environnement : vous fournirez le NOM D'UTILISATEUR et le MOT DE PASSE pour permettre à l'application web d'accéder à l'API par authentification.
 - volumes : pour éviter que l'image php:apache ne fonctionne avec le site web par défaut, nous allons lier le site web donné par POZOS à utiliser.Vous devez avoir quelque chose comme ./website:/var/www/html
 - depend_on : vous devez vous assurer que l'API démarrera en premier avant le site web.
