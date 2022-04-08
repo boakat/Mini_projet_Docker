@@ -41,18 +41,19 @@ Vous devez mettre à jour la ligne suivante avant de lancer le conteneur du site
 
 ## Build et test :
 Quelles informations pour la construction du conteneur :
-  => image de base : "python: 2.7-stretch"
-  => Mainteneur :  nom_ops
-  => Ajouter le code source : Vous devez copier le code source de l'API dans le conteneur à la racine du chemin "/"
+  - image de base : "python: 2.7-stretch"
+  -  Mainteneur :  nom_ops
+  - Ajouter le code source : Vous devez copier le code source de l'API dans le conteneur à la racine du chemin "/"
+  - Volume : creer un dossier data à la racine root "/" ou les données seront stockées et la declarées
+  - API Port : expose port 5000
+  - CMD : CMD [ "python", "./student_age.py" ]
  
   # Prérequis
 L'API utilise le moteur FLASK, voici une liste des paquets que vous devez installer :
 
        apt-get update -y && apt-get install python-dev python3-dev libsasl2-dev python-dev libldap2- dev libssl-dev -y
        pip install flask==1.1.2 flask_httpauth==4.1.0 flask_simpleldap python-dotenv==0.14.0
- => Volume : creer un dossier data à la racine root "/" ou les données seront stockées et la declarées
- => API Port : expose port 5000
- => CMD : CMD [ "python", "./student_age.py" ]
+ 
  
 Construisez votre image et essayez de l'exécuter (n'oubliez pas de monter le fichier student_age.json dans /data/student_age.json dans le conteneur), vérifiez les journaux et assurez-vous que le conteneur écoute et est prêt à répondre.
 
