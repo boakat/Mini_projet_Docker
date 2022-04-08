@@ -82,4 +82,4 @@ POZOS a besoin de vous pour déployer un registre privé et stocker les images c
 - Docker [registry](https://docs.docker.com/registry/ "registry")
 
  
- # N.B: pour la correction detaillé voir le fichier explain.txt
+ # N.B: pour la correction detaillée voir le fichier explain.txt
