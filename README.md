@@ -41,7 +41,7 @@ Il est maintenant temps de vous expliquer le rôle de chaque fichier ;
 
 Vous devez mettre à jour la ligne suivante avant de lancer le conteneur du site web pour que le nom d'api ip ou nom et le port correspondent à votre déploiement $URL = http://<nom d'api ip ou nom: port>/pozos/api/v/get_student_ages' ;
 
-### Build et test :
+### Partie 1 : Build et test :
 Quelles informations pour la construction du conteneur :
   - image de base : "python: 2.7-stretch"
   -  Mainteneur :  nom_ops
@@ -61,7 +61,7 @@ Construisez votre image et essayez de l'exécuter (n'oubliez pas de monter le fi
 
      curl -u toto:python -X GET http://<host IP>:<API exposed port>/pozos/api/v1.0/get_student_ages
      
- ### Infrastructure as Code :
+ ### Partie 2 : Infrastructure as Code :
 Après le test de ton API image, vous avez besoin de tout mettre ensemble et déployer cela en utilisant le docker-compose.yml
 Le fichier docker compose.yml déploiera deux services :
 
@@ -76,5 +76,11 @@ Le fichier docker compose.yml déploiera deux services :
 - image : le nom de l'image construite précédemment 
 - volumes : Vous monterez le fichier student_age.json dans /data/student_age.json
 - port : n'oubliez pas d'exposer le port.
+
+### Partie 3 : Déployer les images construites sur un registre privé et stocker
+POZOS a besoin de vous pour déployer un registre privé et stocker les images construites
+Vous devez donc déployer :
+- a docker [registry](https://docs.docker.com/registry/ "registry")
+
  
  
