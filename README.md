@@ -21,24 +21,27 @@ Veuillez également noter que vous êtes autorisé à utiliser une machine virtu
 La sécurité est un aspect très critique de POZOS DSI donc s'il vous plaît ne désactivez pas le pare-feu ou d'autres mécanismes de sécurité sinon veuillez expliquer vos raisons dans votre livraison.
 
 ### Description de l'application :
+L'application sur laquelle vous allez travailler s'appelle "student list", cette application est très basique et permet à POZOS d'afficher la liste des étudiants avec leur âge.
 
-L'application sur laquelle vous allez travailler s'appelle "student_list", cette application est très basique et permet à POZOS d'afficher la liste des étudiants avec leur âge.
-
-student_list a deux modules :
-
-    le premier module est une API REST (avec authentification de base nécessaire) qui envoie la liste des souhaits de l'étudiant basée sur un fichier JSON.
-    Le second module est une application web écrite en HTML + PHP qui permet à l'utilisateur final d'obtenir la liste des étudiants.
+## Student list a deux modules :
+le premier module est une API REST (avec authentification de base nécessaire) qui envoie la liste des souhaits de l'étudiante basée sur un fichier JSON.
+Le second module est une application web écrite en HTML + PHP qui permet à l'utilisateur final d'obtenir la liste des étudiants.
 
 Votre travail consiste à construire un conteneur pour chaque module et à les faire interagir les uns avec les autres.
 Les fichiers que vous devez fournir (dans votre livraison) sont Dockerfile et docker-compose.yml (actuellement les deux sont vides)
 
-Il est maintenant temps de vous expliquer le rôle de chaque fichier :
+Il est maintenant temps de vous expliquer le rôle de chaque fichier ;
+- Docker compose.yml : pour lancer l'application (API et application web)
+- Dockerfile : le fichier qui sera utilisé pour construire l'image de l'API (les détails seront donnés)
+- Student age.Json : contient le nom de l'étudiant avec son âge au format JSON
+- Student age.py : contient le code source de l'API en python
+- Index.php : Page PHP où l'utilisateur final sera connecté pour interagir avec le service pour lister les étudiants avec leur âge.
 
-    - docker-compose.yml : pour lancer l'application (API et application web)
-    - Dockerfile : le fichier qui sera utilisé pour construire l'image de l'API (les détails seront donnés)
-    - student_age.json : contient le nom de l'étudiant avec son âge au format JSON
-    - student_age.py : contient le code source de l'API en python
-    - index.php : Page PHP où l'utilisateur final sera connecté pour interagir avec le service pour - lister les étudiants avec leur âge.
+Vous devez mettre à jour la ligne suivante avant de lancer le conteneur du site web pour que le nom d'api ip ou nom et le port correspondent à votre déploiement $URL = http://<nom d'api ip ou nom: port>/pozos/api/v/get_student_ages' ;
 
-Vous devez mettre à jour la ligne suivante avant de lancer le conteneur du site web pour que le nom d'api_ip_ou_nom et le port correspondent à votre déploiement $url = 'http://<nom d'api_ip_ou_nom:port>/pozos/api/v1.0/get_student_ages' ;
+### Build et test :
 
+Quelles informations pour la construction du conteneur :
+ => image de base : "python: 2.7-stretch"
+ => Mainteneur :  pozos_nom_ops
+ => Ajouter le code source : Vous devez copier le code source de l'API dans le conteneur à la racine du chemin "/"
