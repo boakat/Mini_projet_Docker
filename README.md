@@ -41,9 +41,11 @@ Vous devez mettre à jour la ligne suivante avant de lancer le conteneur du site
 
 ## Build et test :
 Quelles informations pour la construction du conteneur :
+
  => image de base : "python: 2.7-stretch"
  => Mainteneur :  nom_ops
  => Ajouter le code source : Vous devez copier le code source de l'API dans le conteneur à la racine du chemin "/"
+ 
   # Prérequis
 L'API utilise le moteur FLASK, voici une liste des paquets que vous devez installer :
 
