@@ -1,31 +1,31 @@
-## Description de student-list
+# Description de student-list
 
 Ce répertoire est une application simple pour lister les étudiants avec un serveur web (PHP) et une API (flask)
 
 ![project](https://user-images.githubusercontent.com/18481009/84582395-ba230b00-adeb-11ea-9453-22ed1be7e268.jpg)
 
-## Contexte du projet : 
+# Contexte du projet : 
 POZOS est une société informatique située en France qui développe des logiciels pour les écoles secondaires.
 Le département d'innovation veut bouleverser l'infrastructure existante pour qu'elle puisse être évolutive, facilement déployée avec un maximum d'automatisation.
 POZOS veut que vous construisiez un POC pour montrer comment docker peut vous aider et combien cette technologie est efficace.
 Pour ce POC, POZOS va vous donner une application et vous demander de construire une infrastructure "découplée" basée sur Docker.
 
-## Existant du projet :
+# Existant du projet :
 Actuellement, l'application tourne sur un seul serveur, sans aucune extensibilité ni haute disponibilité.
 Lorsque POZOS a besoin de déployer une nouvelle version, à chaque fois quelque chose ne va pas.
 En conclusion, POZOS a besoin d'agilité sur sa ferme logicielle.
 
-## Quelques récommandations pour infrastructure :
+# Quelques récommandations pour infrastructure :
 Pour ce POC, vous n'utiliserez qu'une seule machine avec un docker installé dessus.
 La construction et le déploiement seront effectués sur cette machine.
 POZOS vous recommande d'utiliser l'OS Centos7.6 car c'est le plus utilisé dans l'entreprise.
 Veuillez également noter que vous êtes autorisé à utiliser une machine virtuelle basée sur Centos7.6 et non votre machine physique.
 La sécurité est un aspect très critique de POZOS DSI donc s'il vous plaît ne désactivez pas le pare-feu ou d'autres mécanismes de sécurité sinon veuillez expliquer vos raisons dans votre livraison.
 
-## Description de l'application :
+# Description de l'application :
 L'application sur laquelle vous allez travailler s'appelle "student list", cette application est très basique et permet à POZOS d'afficher la liste des étudiants avec leur âge.
 
-## Student list a deux modules :
+# Student list a deux modules :
 le premier module est une API REST (avec authentification de base nécessaire) qui envoie la liste des souhaits de l'étudiant basé sur un fichier JSON.
 Le second module est une application web écrite en HTML + PHP qui permet à l'utilisateur final d'obtenir la liste des étudiants.
 
